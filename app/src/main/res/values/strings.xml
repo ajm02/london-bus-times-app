@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">London Bus Times</string>
+    <string name="poweredByTfl">Powered by Tfl Open Data</string>
+    <string name="copyRightText">\'Contains OS data © Crown copyright and database rights 2016\' and Geomni UK Map data © and database rights [2019]
+    </string>
+    <string name="add_stop_text">Add Stop</string>
+    <string name="add_stop_brief">Enter the name of the bus stop to add or the stop code. The stop code is a 5 digit code that can
+    be found at the bus stop. If both name and code are given, the system will choose based on the stop code alone. If you enter the name alone, the system
+        will add all the stops with that stop name.
+    </string>
+    <string name="stop_name_text">Stop Name:</string>
+    <string name="stop_code_text">Stop Code:</string>
+    <string name="stop_name_hint">E.g. Turner Road</string>
+    <string name="stop_code_hint">E.g. 52341</string>
+    <string name="add_text">Add</string>
+    <string name="back_text">Back</string>
+    <string name="input_delete_description">Input delete image that deletes the displayed stop from the list</string>
+    <string name="search_bar_hint">Search your stops</string>
+</resources>

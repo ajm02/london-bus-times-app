@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    android:backgroundTint="#EFE3E7">
+
+    <TextView
+        android:id="@+id/addStopBrief"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/add_stop_brief"
+        android:textAlignment="center"
+        android:textColor="@android:color/secondary_text_light"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#710D22"
+        android:text="@string/add_text"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#710D22"
+        android:text="@string/back_text"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="195dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addStopBrief"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.13"
+        tools:layout_editor_absoluteX="1dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:gravity="left|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/stopCodeText"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/stop_name_text"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/stop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/stop_code_text"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:gravity="center|left"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/stopName"
+                android:layout_width="220dp"
+                android:layout_height="75dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="0dp"
+                android:ems="10"
+                android:hint="@string/stop_name_hint"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:textColorHint="#757575"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/stopCode"
+                android:layout_width="220dp"
+                android:layout_height="75dp"
+                android:ems="10"
+                android:hint="@string/stop_code_hint"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColorHint="#78909C"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
