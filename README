@@ -37,5 +37,5 @@ interactive map
 The Transport For London Countdown API was used to power much of this app, including stop names,
 codes, locations, bus arrival times and more. To see a demo of this application, I have recorded a
 short video showcasing the app which can be found in this folder as demo.mp4, recorded on a Galaxy
-S7. Currently, If you wish to use this app, load the project into Android Studio and run it on your
-android emulator or phone (instructions available online)
+S7, you may download and view this video. Currently, If you wish to use this app, load the project
+into Android Studio and run it on your android emulator or phone (instructions available online)
