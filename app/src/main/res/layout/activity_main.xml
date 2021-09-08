@@ -40,16 +40,15 @@
     <Button
         android:id="@+id/addStopButton"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="179dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="5dp"
         android:background="#710D22"
         android:text="@string/add_stop_text"
         android:textSize="22sp"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toTopOf="@+id/copyRight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
@@ -61,5 +60,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fromTfl" />
+
+    <Button
+        android:id="@+id/useMapButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="#710D22"
+        android:text="@string/use_map_text"
+        android:textSize="22sp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/copyRight"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

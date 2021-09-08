@@ -1,5 +1,6 @@
 package com.ahmedbustimes.londonbustimes;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -31,8 +32,7 @@ public class AddStopActivity extends AppCompatActivity {
         // Navigate back to the main menu when the back button is pressed
         Button backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener((view) -> {
-            Intent returnMainMenu = new Intent(AddStopActivity.this, MainActivity.class);
-            startActivity(returnMainMenu);
+            goBack();
         });
 
         // Add the stop given to the stop list
@@ -51,9 +51,9 @@ public class AddStopActivity extends AppCompatActivity {
                 Thread thread = new Thread(() -> {
 
                     try {
-                        String foundStopName = APIInteract.findStopName(stopCode, AddStopActivity.this); // Find the name of this stop
+                        String foundStopName = TFLAPIInteract.findStopName(stopCode, AddStopActivity.this); // Find the name of this stop
                         String lineToAdd = foundStopName + "|" + stopCode + "\n";
-                        int result = addStop(lineToAdd, stopCode); // Add the stop and store the result
+                        int result = addStop(lineToAdd, stopCode, AddStopActivity.this); // Add the stop and store the result
 
                         runOnUiThread(() -> {
                             String text;
@@ -103,7 +103,7 @@ public class AddStopActivity extends AppCompatActivity {
                 Thread thread = new Thread(() -> {
 
                     try {
-                        ArrayList<String> foundStopCodes = APIInteract.findStopCodes(stopName, AddStopActivity.this); // Find the stop codes
+                        ArrayList<String> foundStopCodes = TFLAPIInteract.findStopCodes(stopName, AddStopActivity.this); // Find the stop codes
                         ArrayList<String> linesToAdd = new ArrayList<String>();
 
                         for (String i : foundStopCodes) {
@@ -115,7 +115,7 @@ public class AddStopActivity extends AppCompatActivity {
                         for (int i = 0; i < foundStopCodes.size(); i++) {
 
                             // If a single stop is successfully added, then set addedStops to true
-                            if (addStop(linesToAdd.get(i), foundStopCodes.get(i)) == 2) {
+                            if (addStop(linesToAdd.get(i), foundStopCodes.get(i), AddStopActivity.this) == 2) {
                                 addedStops = true;
                             }
                         }
@@ -166,17 +166,30 @@ public class AddStopActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
+    /**
+     * Navigates back to the main menu
+     */
+    private void goBack() {
+        Intent returnMainMenu = new Intent(AddStopActivity.this, MainActivity.class);
+        startActivity(returnMainMenu);
+    }
+
     /**
      * Adds a stop to the list of clickable stops by writing it to a text file containing stop codes and their respective stop names
      * @param stopData the name and code of the stop to write
      * @param stopCode the stop code
      * @return 0 if failed to add that stop, 1 if the stop is already present in the file, and 2 if the stop was successfully added
      */
-    private int addStop(String stopData, String stopCode) {
+    public static int addStop(String stopData, String stopCode, Context context) {
 
         // Read the stops file
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("stops.txt")));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput("stops.txt")));
             String line = "";
 
             while ((line = reader.readLine()) != null) {
@@ -194,7 +207,7 @@ public class AddStopActivity extends AppCompatActivity {
 
         // Write to the stops file
         try {
-            FileOutputStream fos = openFileOutput("stops.txt", MODE_APPEND);
+            FileOutputStream fos = context.openFileOutput("stops.txt", MODE_APPEND);
             fos.write(stopData.getBytes()); // Append the stop name and code to the file
             return 2;
         }

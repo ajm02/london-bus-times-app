@@ -16,4 +16,7 @@
     <string name="back_text">Back</string>
     <string name="input_delete_description">Input delete image that deletes the displayed stop from the list</string>
     <string name="search_bar_hint">Search your stops</string>
+    <string name="use_map_text">Use Map</string>
+    <string name="view_times">View Times</string>
+    <string name="api_key">AIzaSyCBLdJVYOXK_X1hKqp3WapGr6ieYAiHpX8</string>
 </resources>

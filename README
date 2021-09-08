@@ -1,0 +1,41 @@
+This is London Bus Times, an Android application that allows you to check the arrival time of buses
+around London.
+
+This is a project I have made mainly for myself, however the project is on GitHub for others to see
+and use. The project is complete, however, in future I may get round to adding more features and
+publishing it on the play store. The features of this app include:
+
+- A main menu which contains a list of favourited stops. Each list item shows the name of the stop,
+and where in London the buses arriving at this stop will be heading towards. You can tap on a
+stop to view the arrival times of the incoming buses. The main menu has two buttons, an Add Stop
+button, which takes you to an activity where you can add stops to your favourited list, and a
+Use Map button which allows you to view and add stops to your list with Google Maps. You can remove
+a stop from your list by pressing the delete icon on the right side of a list item.
+
+- An Add Stop activity where you can add stops to your favourited list on the main menu by entering
+the name of the stop you want to add, or by entering a unique 5 digit code which identifies that
+stop (can be found at the stop). Appropriate messages are displayed if the stop is already present
+in the list or the stop name or code is invalid.
+
+- An interactive map (provided by Google Maps) which allows you to view all 17,000+ bus stops in
+London (a marker is position over each bus stop). You can add a stop to the favourited list in the
+main menu from this map and you can view the arrival times for buses at each stop.
+
+- An activity which displays the stop you have selected and a list of buses arriving to this stop
+within the next 30 minutes. The list contains the bus number/lineID e.g. X16, 114, the destination
+of the arriving bus, and the time in minutes until the bus arrives at the selected stop, displaying
+Due if there is less than 1 minute until the bus arrives.
+
+This project was written in Java and uses 3 external libraries (excluding the libraries needed to
+create an android app that are provided by default in the build.gradle file by Android Studio):
+
+- Google Play Services Location and Maps, to create the interactive map
+- Google Maps Clustering by Sharewire, to allow fast, responsive marker clustering on the
+interactive map
+- Apache Commons Text, for a small use involving capitalising some words
+
+The Transport For London Countdown API was used to power much of this app, including stop names,
+codes, locations, bus arrival times and more. To see a demo of this application, I have recorded a
+short video showcasing the app which can be found in this folder as demo.mp4, recorded on a Galaxy
+S7. Currently, If you wish to use this app, load the project into Android Studio and run it on your
+android emulator or phone (instructions available online)

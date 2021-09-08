@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MapsActivity" />
+
+    <ImageView
+        android:id="@+id/map_add_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@drawable/ic_map_add" />
+
+    <ImageView
+        android:id="@+id/map_times_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/map_add_button"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="0dp"
+        app:srcCompat="@drawable/ic_map_times" />
+
+    <ImageView
+        android:id="@+id/map_my_location"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        app:srcCompat="@drawable/ic_my_location" />
+
+</RelativeLayout>

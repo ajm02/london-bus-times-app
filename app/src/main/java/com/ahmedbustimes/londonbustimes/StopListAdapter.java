@@ -20,7 +20,7 @@ public class StopListAdapter extends ArrayAdapter<Stop> {
     int resource;
     private static class ViewHolder {
         TextView stopNameDisplay;
-        TextView stopCodeDisplay;
+        TextView towardsDisplay;
         ImageView deleteImage;
     }
 
@@ -39,7 +39,16 @@ public class StopListAdapter extends ArrayAdapter<Stop> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         String stopName = getItem(position).getStopName(); // Get the name of the stop
-        String stopCode = "Stop Code: " + getItem(position).getStopCode(); // Get the code of the stop
+        String towards;
+
+        if (getItem(position).getTowards().equals("")) {
+            towards = "";
+        }
+
+        else {
+            towards = "Towards " + getItem(position).getTowards(); // Get the code of the stop
+        }
+
         ViewHolder holder; // Holder class to hold the views
 
         if (convertView == null) {
@@ -50,7 +59,7 @@ public class StopListAdapter extends ArrayAdapter<Stop> {
             // Create a ViewHolder to hold the views
             holder = new ViewHolder();
             holder.stopNameDisplay = (TextView) convertView.findViewById(R.id.stop_name);
-            holder.stopCodeDisplay = (TextView) convertView.findViewById(R.id.stop_code);
+            holder.towardsDisplay = (TextView) convertView.findViewById(R.id.towards);
             holder.deleteImage = (ImageView) convertView.findViewById(R.id.deleteImage);
             convertView.setTag(holder);
         }
@@ -60,7 +69,7 @@ public class StopListAdapter extends ArrayAdapter<Stop> {
         }
 
         holder.stopNameDisplay.setText(stopName); // Set the stopNameDisplay to stopName
-        holder.stopCodeDisplay.setText(stopCode); // Set the stopCodeDisplay to stopCode
+        holder.towardsDisplay.setText(towards); // Set the towardsDisplay to towards
         // Add an onClick listener to the delete image to remove the stop
         holder.deleteImage.setOnClickListener((view) -> {
             ((MainActivity) context).removeStop(getItem(position).getStopCode()); // Remove stop
